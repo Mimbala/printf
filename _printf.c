@@ -20,7 +20,7 @@ int _printf(cons char *format, ...)
 	va_start(list, format);
 	i = count = 0;
 
-	while (formula[i] != '\0')
+	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
@@ -28,7 +28,7 @@ int _printf(cons char *format, ...)
 			return (-1);
 			f = get_func(format[i + 1]);
 		if (f == NULL)
-			count += print_nan(format[i], format[i] + 1]);
+			count += print_nan(format[i], format[i + 1]);
 		else
 			count += f(list);
 		i++;
